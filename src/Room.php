@@ -16,7 +16,7 @@ class Room
 		for($cont = 0; $cont < $number; $cont++)
 		{
 			$fakeName = $this->faker->name;
-			$this->attendees[] = new Attendee($cont + 1 , $fakeName);
+			$this->attendees[] = new Attendee($cont + 1 , 'Invitado '.($cont + 1));
 		}
 
 		$tableNumber = ceil($number / 4);
