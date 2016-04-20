@@ -43,15 +43,6 @@ class Room
 						else
 							$cont = 0;
 					}
-
-					// $tableCont++;
-					// $cont = 0;
-					/*if($tableCont < (count($this->tables) - 1) || !$this->checkDistribution())
-					{
-						$wasAssigned = $this->tables[$tableCont]->addMember($this->attendees[$cont]);
-						if($wasAssigned)
-							$this->attendees[$cont]->assigned = true;
-					}*/
 				}
 				else
 				{
@@ -67,58 +58,6 @@ class Room
 				$cont = 0;
 
 		}
-		
-		/*if($stop == 10)
-		{
-			echo "NO SE PUDO COMPLETAR LA DISTRIBUCIÓN\n";
-			//$this->printTables();
-			//die();
-		}*/
-
-		/*$tableCont = 0;
-
-		for($cont = 0; $cont < count($this->attendees); $cont++)
-		{
-			if($stop == 4) {
-				var_dump($this->attendees[$cont]->assigned);
-			}
-
-			if($this->attendees[$cont]->assigned == false)
-			{
-				if($stop == 7) {
-					//var_dump($this->tables[$tableCont]->isFull());
-					var_dump($this->attendees[$cont]->getId());
-				}
-				if($this->tables[$tableCont]->isFull())
-				{
-					$tableCont++;
-					if($tableCont < (count($this->tables) - 1) || !$this->checkDistribution())
-					{
-						$wasAssigned = $this->tables[$tableCont]->addMember($this->attendees[$cont]);
-						if($wasAssigned)
-							$this->attendees[$cont]->assigned = true;
-					}
-				}
-				else
-				{
-					$wasAssigned = $this->tables[$tableCont]->addMember($this->attendees[$cont]);
-					if($wasAssigned)
-						$this->attendees[$cont]->assigned = true;
-				}
-			}
-			if($cont >= count($this->attendees) && !$this->checkDistribution())
-				$cont = 0;
-			var_dump($this->attendees[$cont]->assigned);
-		}
-			if($stop == 7 ) {
-				echo "Stop: ".$stop."\n";
-				echo ("Table Cont: ".$tableCont."\n");
-				var_dump($this->checkDistribution());
-				//var_dump((count($this->tables) - 1));
-				//var_dump($this->attendees[$cont]);
-				$this->printTables(); 
-				die();
-			}*/
 	}
 
 	public function cleanTables()

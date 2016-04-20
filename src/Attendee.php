@@ -54,7 +54,6 @@ class Attendee
 		{
 			$output .= $table."\t";
 		}
-		//$output = print_r($this->tables, true);
 		return $output;
 	}
 }

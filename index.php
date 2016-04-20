@@ -8,12 +8,6 @@ $room = new Room(28);
 echo 'Numero de asistentes: ' . $room->getAttendeesNumber()."\n";
 echo 'Numero de mesas: ' . $room->getTableNumber()."\n\n";
 echo "===============================First Round==============================\n";
-
-/*$room->fillTables();
-$room->printTables();
-$room->cleanTables();
-die();*/
-
 while (!$room->checkDistribution()) 
 {
 	$room->fillTables();
