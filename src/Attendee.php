@@ -7,12 +7,15 @@ class Attendee
 	private $name;
 	private $history;
 	public $assigned;
+
+	private $tables;
 	
 	function __construct($id, $name)
 	{
 		$this->id = $id;
 		$this->name = $name;
 		$this->assigned = false;
+		$this->tables = array();
 	}
 
 	public function getId()
@@ -37,5 +40,21 @@ class Attendee
 	{
 		if($this->id != $attende->getId())
 			$this->history[] = $attende->getId();
+	}
+
+	public function addTable($table)
+	{
+		$this->tables[] = $table->getId();
+	}
+
+	public function getTables()
+	{
+		$output = '';
+		foreach ($this->tables as $table)
+		{
+			$output .= $table."\t";
+		}
+		//$output = print_r($this->tables, true);
+		return $output;
 	}
 }

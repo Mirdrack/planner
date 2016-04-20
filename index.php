@@ -3,7 +3,7 @@ require_once __DIR__.'/vendor/autoload.php';
 
 use Planner\Room;
 
-$room = new Room(17);
+$room = new Room(28);
 
 echo 'Numero de asistentes: ' . $room->getAttendeesNumber()."\n";
 echo 'Numero de mesas: ' . $room->getTableNumber()."\n\n";
@@ -39,5 +39,12 @@ while (!$room->checkDistribution())
 {
 	$room->fillTables($myCont);
 	$myCont++;
+	if($myCont == 10)
+		break;
 }
 $room->printTables();
+echo "\n\n";
+
+echo "=======================Distribución por invitado=======================\n";
+$room->printAttendees();
+$room->printUnassignedAttendees();

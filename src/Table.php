@@ -89,4 +89,9 @@ class Table
 		}
 		echo "\n";;
 	}
+
+	public function getId()
+	{
+		return $this->id;
+	}
 }

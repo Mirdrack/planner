@@ -37,6 +37,8 @@ class Room
 						if($wasAssigned)
 						{
 							$this->attendees[$cont]->assigned = true;
+
+							$this->attendees[$cont]->addTable($this->tables[$tableCont]);
 						}
 						else
 							$cont = 0;
@@ -55,7 +57,10 @@ class Room
 				{
 					$wasAssigned = $this->tables[$tableCont]->addMember($this->attendees[$cont]);
 					if($wasAssigned)
+					{
 						$this->attendees[$cont]->assigned = true;
+						$this->attendees[$cont]->addTable($this->tables[$tableCont]);
+					}
 				}
 			}
 			if($cont >= count($this->attendees) && !$this->checkDistribution())
@@ -63,12 +68,12 @@ class Room
 
 		}
 		
-		if($stop == 10)
+		/*if($stop == 10)
 		{
 			echo "NO SE PUDO COMPLETAR LA DISTRIBUCIÓN\n";
-			$this->printTables();
-			die();
-		}
+			//$this->printTables();
+			//die();
+		}*/
 
 		/*$tableCont = 0;
 
@@ -155,8 +160,21 @@ class Room
 	{
 		foreach ($this->attendees as $attendee)
 		{
-			print_r($attendee);
+			echo $attendee->getName()."\t Mesas: ";
+			echo $attendee->getTables();
+			echo "\n";
 		}
+	}
+
+	public function printUnassignedAttendees()
+	{
+		echo "NO SE PUDO COMPLETAR LA DISTRIBUCIÓN\n";
+		echo "INVITADOS NO ASIGNADOS\n";
+		foreach ($this->attendees as $attendee)
+		{
+			if(!$attendee->assigned)
+				echo $attendee->getName()."\n";
+		}	
 	}
 
 	public function getAttendeesNumber()
