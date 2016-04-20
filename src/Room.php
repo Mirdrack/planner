@@ -11,7 +11,7 @@ class Room
 
 	function __construct($number)
 	{
-		$this->faker = FakerFactory::create();
+		$this->faker = FakerFactory::create('es_ES');
 
 		for($cont = 0; $cont < $number; $cont++)
 		{

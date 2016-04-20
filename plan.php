@@ -9,6 +9,9 @@ if(!isset($_POST['number']))
 else
 	$number = $_POST['number'];	
 
+if($number < 16)
+	die('<h1>16 its the minimum = [ </h1>');
+
 $room = new Room($number);
 
 ?>
@@ -17,6 +20,7 @@ $room = new Room($number);
 <html>
 <head>
 	<title>::Planner::</title>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
