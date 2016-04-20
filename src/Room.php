@@ -30,8 +30,20 @@ class Room
 			{
 				if($this->tables[$tableCont]->isFull())
 				{
-					$tableCont++;
-					$cont = 0;
+					if($tableCont < (count($this->tables) - 1))
+					{
+						$tableCont++;
+						$wasAssigned = $this->tables[$tableCont]->addMember($this->attendees[$cont]);
+						if($wasAssigned)
+						{
+							$this->attendees[$cont]->assigned = true;
+						}
+						else
+							$cont = 0;
+					}
+
+					// $tableCont++;
+					// $cont = 0;
 					/*if($tableCont < (count($this->tables) - 1) || !$this->checkDistribution())
 					{
 						$wasAssigned = $this->tables[$tableCont]->addMember($this->attendees[$cont]);
@@ -48,6 +60,14 @@ class Room
 			}
 			if($cont >= count($this->attendees) && !$this->checkDistribution())
 				$cont = 0;
+
+		}
+		
+		if($stop == 10)
+		{
+			echo "NO SE PUDO COMPLETAR LA DISTRIBUCIÓN\n";
+			$this->printTables();
+			die();
 		}
 
 		/*$tableCont = 0;

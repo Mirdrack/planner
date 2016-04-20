@@ -26,7 +26,7 @@ echo "==============================Second Round==============================\n
 $myCont = 1;
 while (!$room->checkDistribution()) 
 {
-	$room->fillTables($myCont);
+	$room->fillTables();
 	$myCont++;
 }
 $room->printTables();
@@ -34,8 +34,10 @@ $room->cleanTables();
 $room->freeAttendees();
 
 echo "==============================Third Round==============================\n";
+$myCont = 1;
 while (!$room->checkDistribution()) 
 {
-	$room->fillTables();
+	$room->fillTables($myCont);
+	$myCont++;
 }
 $room->printTables();
