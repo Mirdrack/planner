@@ -56,4 +56,14 @@ class Attendee
 		}
 		return $output;
 	}
+
+	public function getTablesHTML()
+	{
+		$output = '';
+		foreach ($this->tables as $table)
+		{
+			$output .= '<div class="col s2">Mesa '.$table."</div>";
+		}
+		return $output;
+	}
 }

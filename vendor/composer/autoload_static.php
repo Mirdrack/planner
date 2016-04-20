@@ -15,6 +15,10 @@ class ComposerStaticInitd5ffbbb76ee55c70dff7bcbcdfaa39e3
         array (
             'Planner\\' => 8,
         ),
+        'F' => 
+        array (
+            'Faker\\' => 6,
+        ),
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
@@ -29,6 +33,10 @@ class ComposerStaticInitd5ffbbb76ee55c70dff7bcbcdfaa39e3
         'Planner\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Faker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
         ),
         'Doctrine\\Instantiator\\' => 
         array (

@@ -2,7 +2,8 @@
     "name": "mirdrack/planner",
     "description": "A simple script to plan networking events",
     "require": {
-        "phpunit/phpunit": "~4.0"
+        "phpunit/phpunit": "~4.0",
+        "fzaninotto/faker": "^1.5"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0"

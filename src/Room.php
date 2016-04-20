@@ -1,16 +1,22 @@
 <?php
 namespace Planner;
 
+use \Faker\Factory as FakerFactory;
+
 class Room
 {
 	public $attendees;
 	public $tables;
+	private $faker;
 
 	function __construct($number)
 	{
+		$this->faker = FakerFactory::create();
+
 		for($cont = 0; $cont < $number; $cont++)
 		{
-			$this->attendees[] = new Attendee($cont + 1 , 'Attendee '.($cont + 1));
+			$fakeName = $this->faker->name;
+			$this->attendees[] = new Attendee($cont + 1 , $fakeName);
 		}
 
 		$tableNumber = ceil($number / 4);
@@ -18,6 +24,7 @@ class Room
 		{ 
 			$this->tables[] = new Table($cont + 1, 'Mesa '.($cont + 1));
 		}
+
 	}
 
 	public function fillTables($stop = 0)
@@ -101,7 +108,20 @@ class Room
 		{
 			echo $attendee->getName()."\t Mesas: ";
 			echo $attendee->getTables();
-			echo "\n";
+			echo "\n\n";
+		}
+	}
+
+	public function printAttendeesHTML()
+	{
+		foreach ($this->attendees as $attendee)
+		{
+			echo '<div class="row">';
+			echo '	<div class="col s3">';
+			echo 		$attendee->getName();
+			echo '	</div>';
+			echo 	$attendee->getTablesHTML();
+			echo '</div>';
 		}
 	}
 
@@ -113,6 +133,20 @@ class Room
 		{
 			if(!$attendee->assigned)
 				echo $attendee->getName()."\n";
+		}	
+	}
+
+	public function printUnassignedAttendeesHTML()
+	{
+		if(!$this->checkDistribution())
+		{
+			echo "<h5>NO SE PUDO COMPLETAR LA DISTRIBUCI&OacuteN</h5>";
+			echo "<h5>Invitados no asignados para la 3ra ronda</h5>";
+		}
+		foreach ($this->attendees as $attendee)
+		{
+			if(!$attendee->assigned)
+				echo $attendee->getName()."<br>";
 		}	
 	}
 
