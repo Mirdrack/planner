@@ -1,0 +1,21 @@
+{
+    "name": "mirdrack/planner",
+    "description": "A simple script to plan networking events",
+    "require": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Planner\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Clemente Estrada",
+            "email": "mirdrack@gmail.com"
+        }
+    ]
+}
