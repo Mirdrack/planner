@@ -30,6 +30,8 @@ class Table
 			foreach ($this->members as $member)
 			{
 				$canBeAdded = $member->checkHistory($attende);
+				if(!$canBeAdded)
+					return false;
 			}
 			if($canBeAdded && !$attende->assigned)
 			{
